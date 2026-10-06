@@ -26,26 +26,130 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-const registerLink = document.getElementById('registerLink');
-if (registerLink) {
-  registerLink.addEventListener('click', (event) => {
-    if (registerLink.getAttribute('href') === '#') {
-      event.preventDefault();
-      alert('Agrega aquí el enlace de tu formulario de registro.');
-    }
-  });
-}
-
 const sections = [...document.querySelectorAll('main section[id]')];
 const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
 
 window.addEventListener('scroll', () => {
   const y = window.scrollY + 160;
   let active = 'inicio';
+
   sections.forEach((section) => {
     if (section.offsetTop <= y) active = section.id;
   });
+
   navLinks.forEach((link) => {
     link.classList.toggle('active', link.getAttribute('href') === `#${active}`);
   });
 }, { passive: true });
+
+const SUPABASE_URL = 'https://qtqisnnuaygwdshenqhv.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_mhdseBhBlfLq7CHVxQUzhg_bmeGQsM-';
+
+const preregistroForm = document.getElementById('preregistroForm');
+const formMessage = document.getElementById('formMessage');
+const submitButton = document.getElementById('submitPreregistro');
+
+function showFormMessage(type, message) {
+  if (!formMessage) return;
+
+  formMessage.className = `form-message ${type ? `is-${type}` : ''}`;
+  formMessage.textContent = message;
+}
+
+function setSubmitting(isSubmitting) {
+  if (!submitButton) return;
+
+  submitButton.disabled = isSubmitting;
+  submitButton.classList.toggle('is-loading', isSubmitting);
+
+  const label = submitButton.querySelector('.submit-label');
+  if (label) {
+    label.textContent = isSubmitting ? 'ENVIANDO...' : 'ENVIAR PREREGISTRO';
+  }
+}
+
+if (preregistroForm) {
+  preregistroForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    showFormMessage('', '');
+
+    if (!preregistroForm.checkValidity()) {
+      preregistroForm.reportValidity();
+      showFormMessage('error', 'Revisa los campos obligatorios antes de continuar.');
+      return;
+    }
+
+    const formData = new FormData(preregistroForm);
+
+    // Campo señuelo contra bots simples. Las personas no lo ven.
+    if (String(formData.get('website') || '').trim()) {
+      showFormMessage('success', 'Preregistro recibido.');
+      preregistroForm.reset();
+      return;
+    }
+
+    const payload = {
+      nombre: String(formData.get('nombre') || '').trim(),
+      edad: Number(formData.get('edad')),
+      email: String(formData.get('email') || '').trim().toLowerCase(),
+      telefono: String(formData.get('telefono') || '').trim(),
+      preparatoria: String(formData.get('preparatoria') || '').trim(),
+      semestre: Number(formData.get('semestre')),
+      tiene_laptop: formData.get('tiene_laptop') === 'true',
+      areas_interes: formData.getAll('areas_interes'),
+      experiencia_programando: String(formData.get('experiencia_programando') || '')
+    };
+
+    setSubmitting(true);
+    showFormMessage('info', 'Enviando tu preregistro...');
+
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/preregistros`, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_PUBLISHABLE_KEY,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        let errorBody = {};
+
+        try {
+          errorBody = await response.json();
+        } catch {
+          // Si Supabase no responde JSON, usamos el estado HTTP.
+        }
+
+        if (response.status === 409 || errorBody.code === '23505') {
+          throw new Error('duplicate_email');
+        }
+
+        console.error('Supabase preregistro error:', response.status, errorBody);
+        throw new Error('request_failed');
+      }
+
+      preregistroForm.reset();
+      showFormMessage(
+        'success',
+        '¡Listo! Tu preregistro quedó guardado. Te contactaremos cuando tengamos novedades de CODEXIA.'
+      );
+    } catch (error) {
+      if (error.message === 'duplicate_email') {
+        showFormMessage(
+          'error',
+          'Ese correo ya está preregistrado. Si necesitas actualizar tus datos, contáctanos.'
+        );
+      } else {
+        showFormMessage(
+          'error',
+          'No pudimos guardar tu preregistro. Revisa tu conexión e inténtalo de nuevo en unos momentos.'
+        );
+      }
+    } finally {
+      setSubmitting(false);
+    }
+  });
+}

@@ -1,16 +1,41 @@
 # CODEXIA — Landing page
 
-Sitio estático responsive para el hackathon CODEXIA.
+Sitio estático responsive para el hackathon CODEXIA con preregistro conectado a Supabase.
 
 ## Archivos
 
-- `index.html`: estructura y contenido.
+- `index.html`: estructura, contenido y formulario de preregistro.
 - `styles.css`: diseño visual responsive.
-- `script.js`: menú móvil, animaciones y navegación activa.
+- `script.js`: menú móvil, animaciones, navegación y envío del preregistro a Supabase.
 - `assets/ultron-hero.png`: imagen principal del hero.
+
+## Preregistro
+
+El formulario guarda los datos en la tabla `public.preregistros` de Supabase mediante la REST Data API.
+
+Campos enviados:
+
+- `nombre`
+- `edad`
+- `email`
+- `telefono`
+- `preparatoria`
+- `semestre`
+- `tiene_laptop`
+- `areas_interes`
+- `experiencia_programando`
+
+La clave incluida en `script.js` es una **Publishable key** de Supabase, diseñada para usarse en aplicaciones públicas del navegador. La seguridad depende de mantener Row Level Security (RLS) y los permisos de la tabla correctamente configurados.
+
+Nunca agregues una `sb_secret_...`, `service_role` ni la contraseña de PostgreSQL al código del sitio.
 
 ## Uso
 
-Abre `index.html` directamente o publica la carpeta completa en GitHub Pages, Netlify, Vercel o cualquier hosting estático.
+Abre `index.html` directamente para revisar la interfaz o publica la carpeta completa como sitio estático en Render.
 
-Para conectar el registro, reemplaza el `href="#"` del elemento con `id="registerLink"` por la URL real de tu formulario.
+Para producción, asegúrate de que:
+
+1. La tabla `public.preregistros` exista.
+2. RLS esté habilitado.
+3. El rol público solo tenga permiso de `INSERT` en los campos del formulario.
+4. No exista una política pública de `SELECT`, `UPDATE` o `DELETE`.

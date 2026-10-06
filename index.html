@@ -30,7 +30,7 @@
       <a href="#mision">Misión</a>
       <a href="#estaciones">Estaciones</a>
       <a href="#participantes">Participantes</a>
-      <a class="nav-cta" href="#registro">Registro <span>›</span></a>
+      <a class="nav-cta" href="#registro">Preregistro <span>›</span></a>
     </nav>
   </header>
 
@@ -110,9 +110,9 @@
           <span class="screen"></span><span class="user-icon">●</span><span class="screen-line l1"></span><span class="screen-line l2"></span><span class="screen-line l3"></span>
         </div>
         <div class="quick-index">04</div>
-        <h2>REGISTRO</h2>
-        <p>Asegura tu lugar y forma parte de una experiencia diseñada para llevar tus habilidades más lejos.</p>
-        <a href="#registro">REGISTRARME <span>›</span></a>
+        <h2>PREREGISTRO</h2>
+        <p>Registra tu interés y recibe la información necesaria para participar en CODEXIA.</p>
+        <a href="#registro">PREREGISTRARME <span>›</span></a>
       </article>
     </section>
 
@@ -215,18 +215,197 @@
       </div>
     </section>
 
-    <section class="final-cta" id="registro">
+    <section class="final-cta registration-section" id="registro">
       <div class="arena" aria-hidden="true">
         <span class="arena-ring ring-a"></span>
         <span class="arena-ring ring-b"></span>
         <span class="arena-floor"></span>
         <span class="silhouette"><i></i></span>
       </div>
-      <div class="final-copy reveal">
-        <span>TU TALENTO PUEDE CAMBIAR ALGO REAL</span>
-        <h2>¿ESTÁS LISTO?</h2>
-        <p>El cupo será limitado. Registra tu interés para recibir fecha, sede y requisitos del evento.</p>
-        <a class="btn btn-primary btn-large" href="#" id="registerLink">QUIERO PARTICIPAR <span>›</span></a>
+
+      <div class="registration-shell">
+        <div class="registration-intro reveal">
+          <span class="eyebrow">PREREGISTRO // CODEXIA</span>
+          <h2>¿ESTÁS<br>LISTO?</h2>
+          <p>
+            El cupo será limitado. Déjanos tus datos para recibir información sobre fecha,
+            sede y requisitos del evento.
+          </p>
+
+          <div class="registration-meta" aria-label="Información del preregistro">
+            <span>◉ CUPO LIMITADO</span>
+            <span>⌁ ESTUDIANTES DE PREPARATORIA</span>
+            <span>&lt;/&gt; 4 ÁREAS TECNOLÓGICAS</span>
+          </div>
+        </div>
+
+        <form class="registration-form reveal" id="preregistroForm" novalidate>
+          <div class="form-header">
+            <div>
+              <span class="form-kicker">NUEVO PARTICIPANTE</span>
+              <h3>Preregistro</h3>
+            </div>
+            <span class="form-status-code">FORM // 01</span>
+          </div>
+
+          <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
+
+          <div class="form-grid">
+            <label class="field">
+              <span>Nombre completo *</span>
+              <input
+                type="text"
+                name="nombre"
+                autocomplete="name"
+                minlength="2"
+                maxlength="120"
+                placeholder="Tu nombre"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>Edad *</span>
+              <input
+                type="number"
+                name="edad"
+                inputmode="numeric"
+                min="12"
+                max="100"
+                placeholder="17"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>Correo electrónico *</span>
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                maxlength="254"
+                placeholder="tu@correo.com"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>Teléfono / WhatsApp *</span>
+              <input
+                type="tel"
+                name="telefono"
+                autocomplete="tel"
+                minlength="7"
+                maxlength="30"
+                placeholder="662 123 4567"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>Preparatoria *</span>
+              <input
+                type="text"
+                name="preparatoria"
+                autocomplete="organization"
+                minlength="2"
+                maxlength="150"
+                placeholder="Nombre de tu preparatoria"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>Semestre *</span>
+              <select name="semestre" required>
+                <option value="" selected disabled>Selecciona</option>
+                <option value="1">1.º semestre</option>
+                <option value="2">2.º semestre</option>
+                <option value="3">3.º semestre</option>
+                <option value="4">4.º semestre</option>
+                <option value="5">5.º semestre</option>
+                <option value="6">6.º semestre</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="choice-group">
+            <legend>¿Tienes laptop que puedas llevar? *</legend>
+            <div class="choice-row choice-row-small">
+              <label class="choice-card">
+                <input type="radio" name="tiene_laptop" value="true" required />
+                <span>Sí</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="tiene_laptop" value="false" required />
+                <span>No</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="choice-group">
+            <legend>
+              ¿Qué áreas te interesan?
+              <small>Opcional · puedes elegir varias</small>
+            </legend>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="checkbox" name="areas_interes" value="desarrollo_movil" />
+                <span>Desarrollo móvil</span>
+              </label>
+              <label class="choice-card">
+                <input type="checkbox" name="areas_interes" value="algoritmos_programacion" />
+                <span>Algoritmos y programación</span>
+              </label>
+              <label class="choice-card">
+                <input type="checkbox" name="areas_interes" value="ciberseguridad" />
+                <span>Ciberseguridad</span>
+              </label>
+              <label class="choice-card">
+                <input type="checkbox" name="areas_interes" value="redes" />
+                <span>Redes</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="choice-group">
+            <legend>¿Cómo consideras tu experiencia programando? *</legend>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="radio" name="experiencia_programando" value="nunca" required />
+                <span>Nunca he programado</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="experiencia_programando" value="principiante" required />
+                <span>Principiante</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="experiencia_programando" value="intermedio" required />
+                <span>Intermedio</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="experiencia_programando" value="avanzado" required />
+                <span>Avanzado</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="honeypot" aria-hidden="true">
+            Sitio web
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
+
+          <div class="form-footer">
+            <p>
+              Usaremos estos datos únicamente para gestionar el preregistro y comunicarnos
+              contigo sobre CODEXIA.
+            </p>
+            <button class="btn btn-primary btn-large submit-btn" type="submit" id="submitPreregistro">
+              <span class="submit-label">ENVIAR PREREGISTRO</span>
+              <span aria-hidden="true">›</span>
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   </main>
