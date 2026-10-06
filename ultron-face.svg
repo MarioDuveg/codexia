@@ -1,0 +1,45 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="450" y1="90" x2="450" y2="1020" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9FFE9" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#A5FFC9" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="450" y1="250" x2="450" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9AFFC5" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#9AFFC5" stop-opacity="0.03"/>
+    </linearGradient>
+    <filter id="blur1" x="0" y="0" width="900" height="1100" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <filter id="eyeGlow" x="130" y="250" width="640" height="240" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <g opacity="0.95">
+    <path d="M450 96L634 180L744 356L711 691L609 886L450 1003L291 886L189 691L156 356L266 180L450 96Z" stroke="url(#g1)" stroke-width="12"/>
+    <path d="M450 142L602 213L693 362L664 669L580 829L450 931L320 829L236 669L207 362L298 213L450 142Z" fill="url(#g1)" stroke="url(#g2)" stroke-width="4"/>
+
+    <path d="M303 298L450 244L597 298L640 413L572 486L450 522L328 486L260 413L303 298Z" stroke="url(#g2)" stroke-width="6"/>
+    <path d="M282 546L450 618L618 546L574 760L450 834L326 760L282 546Z" stroke="url(#g2)" stroke-width="6"/>
+
+    <g filter="url(#blur1)" opacity="0.4">
+      <path d="M450 171L585 231L673 363L647 662L566 811L450 900L334 811L253 662L227 363L315 231L450 171Z" stroke="#62FFAA" stroke-width="10"/>
+    </g>
+
+    <g filter="url(#eyeGlow)" opacity="0.7">
+      <path d="M239 357L404 320L449 353L400 395L257 408L239 357Z" fill="#62FFAA"/>
+      <path d="M661 357L496 320L451 353L500 395L643 408L661 357Z" fill="#62FFAA"/>
+    </g>
+
+    <path d="M250 360L405 327L441 355L396 390L268 400L250 360Z" fill="#B4FFD2" fill-opacity="0.95"/>
+    <path d="M650 360L495 327L459 355L504 390L632 400L650 360Z" fill="#B4FFD2" fill-opacity="0.95"/>
+
+    <path d="M365 642L450 677L535 642" stroke="#98FFC5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M346 714L450 759L554 714" stroke="#98FFC5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+
+    <path d="M330 222L450 184L570 222" stroke="#8EFFBE" stroke-width="8" stroke-linecap="round" opacity="0.24"/>
+    <path d="M285 465L450 526L615 465" stroke="#8EFFBE" stroke-width="7" opacity="0.22"/>
+    <path d="M334 825L450 878L566 825" stroke="#8EFFBE" stroke-width="8" opacity="0.18"/>
+  </g>
+</svg>
