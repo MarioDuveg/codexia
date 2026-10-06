@@ -3,249 +3,241 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#05070a" />
-  <meta name="description" content="Hackathon JARVIS vs ULTRON para estudiantes de preparatoria de Sonora." />
-  <title>JARVIS vs ULTRON | Hackathon Sonora</title>
+  <meta name="theme-color" content="#050506" />
+  <meta name="description" content="CODEXIA — hackathon tecnológico para estudiantes de preparatoria de Sonora." />
+  <title>CODEXIA | Hackathon Tecnológico</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="ambient-grid" aria-hidden="true"></div>
   <div class="scanlines" aria-hidden="true"></div>
-  <div class="page-grid" aria-hidden="true"></div>
 
   <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Ir al inicio">
-      <span class="brand-title">ULTRON</span>
-      <span class="brand-subtitle">HACKATHON</span>
+    <a class="brand" href="#inicio" aria-label="CODEXIA, ir al inicio">
+      <span class="brand-emblem" aria-hidden="true"><i></i></span>
+      <span class="brand-word">CODE<span>X</span>IA</span>
     </a>
 
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
 
-    <nav class="nav" id="nav">
-      <a href="#inicio">Inicio</a>
+    <nav class="nav" id="nav" aria-label="Navegación principal">
+      <a href="#inicio" class="active">Inicio</a>
       <a href="#mision">Misión</a>
-      <a href="#estaciones">Retos</a>
-      <a href="#participa">Agenda</a>
-      <a href="#registro">Prerregistro</a>
-      <a class="nav-cta" href="#registro">Inscribirse ahora</a>
+      <a href="#estaciones">Estaciones</a>
+      <a href="#participantes">Participantes</a>
+      <a class="nav-cta" href="#registro">Registro <span>›</span></a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <div class="hero-tech-lines" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-red" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-cyan" aria-hidden="true"></div>
+      <div class="hero-image-wrap" aria-hidden="true">
+        <img class="ultron-hero" src="assets/ultron-hero.png" alt="" />
+        <div class="hero-shade"></div>
+        <div class="hero-red-glow"></div>
+      </div>
 
-      <img class="ultron-face" src="ultron-face.svg" alt="Rostro robótico rojo de ULTRON" />
+      <div class="hud hud-left" aria-hidden="true">
+        <span>INNOVACIÓN</span>
+        <span>PROGRAMACIÓN</span>
+        <span>CIBERSEGURIDAD</span>
+        <span>REDES</span>
+      </div>
+      <div class="hud hud-right" aria-hidden="true">
+        <span>IDEAS</span>
+        <span>CÓDIGO</span>
+        <span>SEGURIDAD</span>
+        <span>CONEXIONES</span>
+        <span>IMPACTO</span>
+      </div>
 
-      <div class="hero-copy reveal">
-        <div class="breadcrumbs">IDEAS <span>›</span> CÓDIGO <span>›</span> AUTONOMÍA <span>›</span> UN FUTURO DIFERENTE</div>
-        <h1>
-          CONSTRUYE A <span class="jarvis">JARVIS</span><br />
-          <strong>ANTES DE QUE <span class="ultron-word">ULTRON</span> CONTROLE EL AGUA</strong>
-        </h1>
-        <p class="hero-text">
-          Un hackathon inmersivo para estudiantes de preparatoria de Sonora. Construye un asistente de IA,
-          supera cuatro estaciones tecnológicas y reúne las pistas necesarias para detener a ULTRON.
+      <div class="hero-content reveal">
+        <div class="hero-rule"><i></i><span>HACKATHON TECNOLÓGICO</span><i></i></div>
+        <h1>CODE<span>X</span>IA</h1>
+        <p class="hero-subtitle">La próxima generación construye aquí.</p>
+        <p class="hero-description">
+          Un punto de encuentro para mentes que crean, resuelven y desafían lo imposible.
+          Programación, ciberseguridad y redes para construir el futuro.
         </p>
-
         <div class="hero-actions">
-          <a class="btn primary" href="#registro">INSCRIBIRSE AHORA <span>→</span></a>
-          <a class="btn ghost" href="#estaciones">VER RETOS <span>▶</span></a>
-        </div>
-
-        <div class="hero-meta">
-          <div class="meta-item">
-            <span class="meta-icon">◫</span>
-            <div><b>100 participantes</b><small>Talento de preparatorias de Sonora</small></div>
-          </div>
-          <div class="meta-item">
-            <span class="meta-icon cyan">⌖</span>
-            <div><b>Salón de Congresos</b><small>Una misión presencial y colaborativa</small></div>
-          </div>
-          <div class="meta-item">
-            <span class="meta-icon">◉</span>
-            <div><b>4 estaciones</b><small>Móvil · Algoritmos · Ciberseguridad · Redes</small></div>
-          </div>
+          <a class="btn btn-primary" href="#registro">QUIERO PARTICIPAR <span>›</span></a>
+          <a class="btn btn-outline" href="#mision">VER LA MISIÓN <span>›</span></a>
         </div>
       </div>
 
-      <aside class="mission-console reveal" aria-label="Estado de la misión">
-        <div class="console-title">
-          <span class="target-dot"></span>
-          <span>ESTADO DE LA MISIÓN</span>
+      <div class="hero-corner hero-corner-left" aria-hidden="true"></div>
+      <div class="hero-corner hero-corner-right" aria-hidden="true"></div>
+    </section>
+
+    <section class="quick-grid" aria-label="Explora CODEXIA">
+      <article class="quick-card reveal">
+        <div class="quick-visual visual-mission" aria-hidden="true">
+          <span class="beam"></span><span class="mountain m1"></span><span class="mountain m2"></span>
         </div>
-        <div class="console-warning">CONTROL DEL AGUA EN RIESGO</div>
-        <div class="console-grid">
-          <div><strong>JARVIS</strong><span>EN CONSTRUCCIÓN</span></div>
-          <div><strong>ULTRON</strong><span>ACTIVO</span></div>
-          <div><strong>PISTAS</strong><span>0 / 4</span></div>
-          <div><strong>OBJETIVO</strong><span>PROTEGER EL AGUA</span></div>
+        <div class="quick-index">01</div>
+        <h2>MISIÓN</h2>
+        <p>Resolver retos reales, impulsar ideas disruptivas y dejar un impacto tangible en la tecnología.</p>
+        <a href="#mision">CONOCER MÁS <span>›</span></a>
+      </article>
+
+      <article class="quick-card reveal">
+        <div class="quick-visual visual-stations" aria-hidden="true">
+          <span class="ring r1"></span><span class="ring r2"></span><span class="terminal-block t1"></span><span class="terminal-block t2"></span>
         </div>
-        <div class="signal-bars" aria-hidden="true">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <div class="quick-index">02</div>
+        <h2>ESTACIONES</h2>
+        <p>Retos de programación, ciberseguridad y redes en un formato inmersivo y colaborativo.</p>
+        <a href="#estaciones">VER ESTACIONES <span>›</span></a>
+      </article>
+
+      <article class="quick-card reveal" id="participantes">
+        <div class="quick-visual visual-people" aria-hidden="true">
+          <span class="globe"></span><span class="person p1"></span><span class="person p2"></span><span class="person p3"></span>
         </div>
-      </aside>
+        <div class="quick-index">03</div>
+        <h2>PARTICIPANTES</h2>
+        <p>Estudiantes con curiosidad, iniciativa y ganas de construir soluciones en equipo.</p>
+        <a href="#perfil">MÁS INFORMACIÓN <span>›</span></a>
+      </article>
+
+      <article class="quick-card reveal">
+        <div class="quick-visual visual-register" aria-hidden="true">
+          <span class="screen"></span><span class="user-icon">●</span><span class="screen-line l1"></span><span class="screen-line l2"></span><span class="screen-line l3"></span>
+        </div>
+        <div class="quick-index">04</div>
+        <h2>REGISTRO</h2>
+        <p>Asegura tu lugar y forma parte de una experiencia diseñada para llevar tus habilidades más lejos.</p>
+        <a href="#registro">REGISTRARME <span>›</span></a>
+      </article>
     </section>
 
     <section class="section mission" id="mision">
-      <div class="section-kicker"><span>01</span> / MISIÓN</div>
       <div class="section-heading reveal">
         <div>
-          <p class="eyebrow">LA AMENAZA</p>
-          <h2>ULTRON quiere apropiarse del agua para expandir su capacidad de IA.</h2>
+          <span class="eyebrow">EL FUTURO NOS LLAMA</span>
+          <h2>MÁS QUE<br><strong>UN HACKATHON</strong></h2>
         </div>
-        <p class="section-intro">
-          Los equipos deberán construir a JARVIS y después usarlo como copiloto para resolver cuatro desafíos.
-          Cada estación revela una pieza del protocolo final.
+        <p>
+          CODEXIA convierte una jornada tecnológica en una misión: aprender, investigar, conectar pistas
+          y construir soluciones bajo presión. Cada reto aporta una pieza del protocolo final.
         </p>
       </div>
 
-      <div class="mission-strip reveal">
-        <div><span>01</span><b>CONSTRUIR</b><small>Crear a JARVIS con apoyo de 4 profesores.</small></div>
-        <div><span>02</span><b>INVESTIGAR</b><small>Superar los retos y separar evidencia de señuelos.</small></div>
-        <div><span>03</span><b>INTEGRAR</b><small>Unir las cuatro pistas dentro de JARVIS.</small></div>
-        <div><span>04</span><b>DETENER</b><small>Ejecutar el protocolo final contra ULTRON.</small></div>
+      <div class="stats-panel reveal">
+        <div class="stat"><span class="stat-icon">◉</span><strong>100</strong><small>PARTICIPANTES</small></div>
+        <div class="stat"><span class="stat-icon">&lt;/&gt;</span><strong>4</strong><small>ESTACIONES</small></div>
+        <div class="stat"><span class="stat-icon">⌂</span><strong>1</strong><small>MISIÓN FINAL</small></div>
+        <div class="stat"><span class="stat-icon">⌁</span><strong>∞</strong><small>CONEXIONES</small></div>
       </div>
     </section>
 
     <section class="section stations" id="estaciones">
-      <div class="section-head-row reveal">
+      <div class="section-title-row reveal">
         <div>
-          <div class="section-kicker"><span>02</span> / RETOS · CATEGORÍAS</div>
-          <h2>Elige tu campo. Cambia las reglas.</h2>
+          <span class="eyebrow">04 ESTACIONES · 04 PISTAS</span>
+          <h2>ENTRA AL SISTEMA.</h2>
         </div>
-        <p>Cuatro áreas. Cuatro pistas. Una sola misión.</p>
+        <p>Cuatro áreas técnicas. Un objetivo común: recuperar la información necesaria para completar la misión.</p>
       </div>
 
       <div class="station-grid">
-        <article class="station-card red reveal">
-          <div class="station-top"><span class="station-icon">▣</span><span class="station-number">01</span></div>
+        <article class="station-card reveal">
+          <span class="station-no">01</span>
+          <span class="station-icon">▣</span>
           <span class="station-type">DESARROLLO MÓVIL</span>
           <h3>Field Scanner</h3>
-          <p>Crea una app en React Native, escanea códigos QR y distingue dispositivos auténticos de señuelos de ULTRON.</p>
-          <div class="mission-output"><span>DESBLOQUEA</span><strong>PROTOCOLO FINAL</strong></div>
+          <p>Construye una herramienta móvil para identificar dispositivos auténticos y separar señales de señuelos.</p>
+          <div class="station-output"><span>DESBLOQUEA</span><strong>PROTOCOLO FINAL</strong></div>
         </article>
 
-        <article class="station-card cyan reveal">
-          <div class="station-top"><span class="station-icon">⌘</span><span class="station-number">02</span></div>
+        <article class="station-card reveal">
+          <span class="station-no">02</span>
+          <span class="station-icon">⌘</span>
           <span class="station-type">ALGORITMOS</span>
           <h3>Project Icarus</h3>
-          <p>Analiza el sistema térmico y encuentra el punto crítico que reduce la capacidad computacional de ULTRON.</p>
-          <div class="mission-output"><span>DESBLOQUEA</span><strong>DEBILIDAD</strong></div>
+          <p>Analiza datos, detecta patrones y encuentra el punto crítico oculto dentro del sistema.</p>
+          <div class="station-output"><span>DESBLOQUEA</span><strong>DEBILIDAD</strong></div>
         </article>
 
-        <article class="station-card red reveal">
-          <div class="station-top"><span class="station-icon">◇</span><span class="station-number">03</span></div>
+        <article class="station-card reveal">
+          <span class="station-no">03</span>
+          <span class="station-icon">◇</span>
           <span class="station-type">CIBERSEGURIDAD</span>
           <h3>Zero Trust</h3>
-          <p>Investiga registros, detecta trampas y recupera la credencial auténtica dentro de un entorno controlado.</p>
-          <div class="mission-output"><span>DESBLOQUEA</span><strong>ACCESO</strong></div>
+          <p>Investiga registros, detecta credenciales señuelo y recupera la llave de acceso real.</p>
+          <div class="station-output"><span>DESBLOQUEA</span><strong>ACCESO</strong></div>
         </article>
 
-        <article class="station-card cyan reveal">
-          <div class="station-top"><span class="station-icon">⌬</span><span class="station-number">04</span></div>
+        <article class="station-card reveal">
+          <span class="station-no">04</span>
+          <span class="station-icon">⌬</span>
           <span class="station-type">REDES</span>
           <h3>Ghost Network</h3>
-          <p>Sigue el tráfico, comprende la topología y localiza el núcleo desde donde ULTRON coordina la operación.</p>
-          <div class="mission-output"><span>DESBLOQUEA</span><strong>UBICACIÓN</strong></div>
+          <p>Sigue el tráfico, comprende la topología y localiza el núcleo desde donde se coordina la operación.</p>
+          <div class="station-output"><span>DESBLOQUEA</span><strong>UBICACIÓN</strong></div>
         </article>
       </div>
     </section>
 
-    <section class="section timeline" id="participa">
-      <div class="section-head-row reveal">
+    <section class="section flow" id="perfil">
+      <div class="section-title-row reveal">
         <div>
-          <div class="section-kicker"><span>03</span> / AGENDA DE LA MISIÓN</div>
-          <h2>Tres fases. Una operación.</h2>
+          <span class="eyebrow">CÓMO FUNCIONA</span>
+          <h2>TRES FASES.<br>UNA OPERACIÓN.</h2>
         </div>
-        <p>La experiencia está diseñada para aprender, colaborar y resolver bajo presión.</p>
+        <p>La experiencia está pensada para aprender haciendo, colaborar con tu equipo y resolver desafíos concretos.</p>
       </div>
 
-      <div class="phase-grid">
-        <article class="phase-card reveal">
-          <span class="phase-label">FASE 01</span>
-          <h3>Construcción de JARVIS</h3>
-          <p>Todos los participantes se reúnen en el Salón de Congresos para construir una primera versión funcional de JARVIS con ayuda de cuatro profesores.</p>
-          <div class="phase-code">INIT // JARVIS_BUILD</div>
+      <div class="flow-grid">
+        <article class="flow-card reveal">
+          <span>FASE 01</span>
+          <h3>Preparación</h3>
+          <p>Conoce el contexto, forma tu equipo, recibe las herramientas y prepara tu estrategia.</p>
+          <b>INIT // CODEXIA</b>
         </article>
-        <article class="phase-card reveal">
-          <span class="phase-label cyan-text">FASE 02</span>
-          <h3>Misiones por estación</h3>
-          <p>Los equipos recorren Desarrollo móvil, Algoritmos, Ciberseguridad y Redes para recuperar las cuatro piezas de información.</p>
-          <div class="phase-code">SCAN // 4_STATIONS</div>
+        <article class="flow-card reveal">
+          <span>FASE 02</span>
+          <h3>Misiones</h3>
+          <p>Recorre las cuatro estaciones, resuelve cada reto y recupera las piezas de información.</p>
+          <b>SCAN // 4_STATIONS</b>
         </article>
-        <article class="phase-card reveal">
-          <span class="phase-label">FASE 03</span>
-          <h3>Batalla final</h3>
-          <p>Las pistas se integran en JARVIS. Los equipos deberán ejecutar el protocolo correcto para neutralizar a ULTRON y recuperar el control del agua.</p>
-          <div class="phase-code">EXEC // FINAL_PROTOCOL</div>
+        <article class="flow-card reveal">
+          <span>FASE 03</span>
+          <h3>Protocolo final</h3>
+          <p>Integra las pistas, valida tu solución y ejecuta la estrategia que cierre la misión.</p>
+          <b>EXEC // FINAL_PROTOCOL</b>
         </article>
-      </div>
-    </section>
-
-    <section class="section audience">
-      <div class="audience-card reveal">
-        <div class="audience-copy">
-          <div class="section-kicker"><span>04</span> / PARTICIPANTES</div>
-          <h2>Talento joven de preparatorias públicas y privadas de Sonora.</h2>
-          <p>No necesitas dominar todas las áreas. La misión está diseñada para aprender, colaborar y construir soluciones en equipo.</p>
-        </div>
-        <div class="chips" aria-label="Áreas y participantes">
-          <span>PREPAS PÚBLICAS</span>
-          <span>PREPAS PRIVADAS</span>
-          <span>INTELIGENCIA ARTIFICIAL</span>
-          <span>PROGRAMACIÓN</span>
-          <span>REDES</span>
-          <span>CIBERSEGURIDAD</span>
-        </div>
       </div>
     </section>
 
-    <section class="section register" id="registro">
-      <div class="register-card reveal">
-        <div class="register-copy">
-          <div class="section-kicker"><span>05</span> / PRERREGISTRO</div>
-          <h2>¿Estás listo para enfrentar a ULTRON?</h2>
-          <p>El cupo será limitado. Registra tu interés para recibir la convocatoria, fecha, sede y requisitos del evento.</p>
-          <a class="btn primary large" href="#" id="registerLink">PRERREGISTRARME <span>→</span></a>
-          <small>En <code>index.html</code>, sustituye el <code>href="#"</code> del botón por el enlace real de tu formulario.</small>
-        </div>
-
-        <div class="terminal" aria-label="Terminal JARVIS">
-          <div class="terminal-top"><span></span><span></span><span></span><b>JARVIS // RECRUITMENT_NODE</b></div>
-          <div class="terminal-body">
-            <p><i>&gt;</i> INIT JARVIS_PROTOCOL</p>
-            <p><i>&gt;</i> SEARCHING_FOR_CANDIDATES...</p>
-            <p><i>&gt;</i> SONORA_NETWORK: <b>ONLINE</b></p>
-            <p><i>&gt;</i> PARTICIPANTS_TARGET: <b>100</b></p>
-            <p><i>&gt;</i> STATIONS_AVAILABLE: <b>4</b></p>
-            <p><i>&gt;</i> THREAT_LEVEL: <strong>ULTRON</strong></p>
-            <p><i>&gt;</i> STATUS: <em>RECRUITING</em></p>
-            <p class="cursor-line"><i>&gt;</i> <span class="cursor"></span></p>
-          </div>
-        </div>
+    <section class="final-cta" id="registro">
+      <div class="arena" aria-hidden="true">
+        <span class="arena-ring ring-a"></span>
+        <span class="arena-ring ring-b"></span>
+        <span class="arena-floor"></span>
+        <span class="silhouette"><i></i></span>
+      </div>
+      <div class="final-copy reveal">
+        <span>TU TALENTO PUEDE CAMBIAR ALGO REAL</span>
+        <h2>¿ESTÁS LISTO?</h2>
+        <p>El cupo será limitado. Registra tu interés para recibir fecha, sede y requisitos del evento.</p>
+        <a class="btn btn-primary btn-large" href="#" id="registerLink">QUIERO PARTICIPAR <span>›</span></a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="footer-brand">
-      <span class="footer-logo">ULTRON <small>HACKATHON</small></span>
-      <p>Tecnología hoy. Un futuro con agua mañana.</p>
-    </div>
-    <nav class="footer-nav" aria-label="Navegación de pie de página">
-      <a href="#inicio">Inicio</a>
-      <a href="#estaciones">Retos</a>
-      <a href="#participa">Agenda</a>
-      <a href="#registro">Prerregistro</a>
-    </nav>
-    <p class="disclaimer">Evento educativo independiente. Diseño temático original para el hackathon JARVIS vs ULTRON.</p>
+    <a class="brand footer-brand" href="#inicio">
+      <span class="brand-emblem" aria-hidden="true"><i></i></span>
+      <span class="brand-word">CODE<span>X</span>IA</span>
+    </a>
+    <p>Hackathon tecnológico para estudiantes de preparatoria de Sonora.</p>
+    <a href="#inicio" class="back-top">VOLVER ARRIBA ↑</a>
   </footer>
 
   <script src="script.js"></script>
