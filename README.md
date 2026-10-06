@@ -7,7 +7,14 @@ Sitio estático responsive para el hackathon CODEXIA con preregistro conectado a
 - `index.html`: estructura, contenido y formulario de preregistro.
 - `styles.css`: diseño visual responsive.
 - `script.js`: menú móvil, animaciones, navegación y envío del preregistro a Supabase.
-- `assets/ultron-hero.png`: imagen principal del hero.
+- `assets/cyborg-rojo.webp`: imagen principal del hero.
+- `assets/amazon-500.webp`: imagen de la tarjeta Amazon usada en la sección de premio.
+
+## Premio y sede
+
+- Premio mostrado: tarjetas de regalo Amazon.com.mx de **$500 MXN**.
+- Sede: **Tecnológico de Monterrey, Campus Sonora Norte**.
+- Dirección: **Blvr. Enrique Mazón López 965, C.P. 83000, Hermosillo, Sonora, México**.
 
 ## Preregistro
 
