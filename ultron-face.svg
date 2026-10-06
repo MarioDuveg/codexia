@@ -1,45 +1,56 @@
-<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1000" height="1100" viewBox="0 0 1000 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g1" x1="450" y1="90" x2="450" y2="1020" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#D9FFE9" stop-opacity="0.12"/>
-      <stop offset="1" stop-color="#A5FFC9" stop-opacity="0.02"/>
+    <linearGradient id="metal" x1="500" y1="70" x2="500" y2="1040" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A8B3BA" stop-opacity="0.30"/>
+      <stop offset="0.48" stop-color="#53616B" stop-opacity="0.17"/>
+      <stop offset="1" stop-color="#151B20" stop-opacity="0.04"/>
     </linearGradient>
-    <linearGradient id="g2" x1="450" y1="250" x2="450" y2="900" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9AFFC5" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#9AFFC5" stop-opacity="0.03"/>
+    <linearGradient id="redLine" x1="500" y1="100" x2="500" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF5A6B" stop-opacity="0.94"/>
+      <stop offset="0.42" stop-color="#FF1738" stop-opacity="0.84"/>
+      <stop offset="1" stop-color="#A7001D" stop-opacity="0.28"/>
     </linearGradient>
-    <filter id="blur1" x="0" y="0" width="900" height="1100" filterUnits="userSpaceOnUse">
-      <feGaussianBlur stdDeviation="10"/>
+    <radialGradient id="eye" cx="0" cy="0" r="1" gradientTransform="translate(500 395) rotate(90) scale(115 350)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.18" stop-color="#FFD5DA"/>
+      <stop offset="0.48" stop-color="#FF2342"/>
+      <stop offset="1" stop-color="#800014" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="redGlow" x="80" y="235" width="840" height="390" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="28"/>
     </filter>
-    <filter id="eyeGlow" x="130" y="250" width="640" height="240" filterUnits="userSpaceOnUse">
-      <feGaussianBlur stdDeviation="18"/>
+    <filter id="softGlow" x="0" y="0" width="1000" height="1100" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="10"/>
     </filter>
   </defs>
 
-  <g opacity="0.95">
-    <path d="M450 96L634 180L744 356L711 691L609 886L450 1003L291 886L189 691L156 356L266 180L450 96Z" stroke="url(#g1)" stroke-width="12"/>
-    <path d="M450 142L602 213L693 362L664 669L580 829L450 931L320 829L236 669L207 362L298 213L450 142Z" fill="url(#g1)" stroke="url(#g2)" stroke-width="4"/>
+  <g opacity="0.98">
+    <path d="M500 52L706 126L851 304L819 684L711 905L500 1046L289 905L181 684L149 304L294 126L500 52Z" fill="url(#metal)" stroke="url(#redLine)" stroke-width="8"/>
+    <path d="M500 108L674 171L789 326L762 651L669 851L500 965L331 851L238 651L211 326L326 171L500 108Z" fill="#11171C" fill-opacity="0.72" stroke="#8A99A3" stroke-opacity="0.20" stroke-width="4"/>
 
-    <path d="M303 298L450 244L597 298L640 413L572 486L450 522L328 486L260 413L303 298Z" stroke="url(#g2)" stroke-width="6"/>
-    <path d="M282 546L450 618L618 546L574 760L450 834L326 760L282 546Z" stroke="url(#g2)" stroke-width="6"/>
+    <path d="M276 241L500 161L724 241L792 374L700 501L500 562L300 501L208 374L276 241Z" fill="#0A0F13" fill-opacity="0.84" stroke="url(#redLine)" stroke-opacity="0.58" stroke-width="5"/>
+    <path d="M322 555L500 626L678 555L637 774L500 891L363 774L322 555Z" fill="#0A0F13" fill-opacity="0.88" stroke="#7A8790" stroke-opacity="0.22" stroke-width="5"/>
 
-    <g filter="url(#blur1)" opacity="0.4">
-      <path d="M450 171L585 231L673 363L647 662L566 811L450 900L334 811L253 662L227 363L315 231L450 171Z" stroke="#62FFAA" stroke-width="10"/>
+    <g filter="url(#redGlow)" opacity="0.95">
+      <path d="M230 343L439 303L491 346L432 408L254 425L230 343Z" fill="#FF1738"/>
+      <path d="M770 343L561 303L509 346L568 408L746 425L770 343Z" fill="#FF1738"/>
     </g>
 
-    <g filter="url(#eyeGlow)" opacity="0.7">
-      <path d="M239 357L404 320L449 353L400 395L257 408L239 357Z" fill="#62FFAA"/>
-      <path d="M661 357L496 320L451 353L500 395L643 408L661 357Z" fill="#62FFAA"/>
+    <path d="M237 349L434 313L480 349L425 396L267 410L237 349Z" fill="url(#eye)"/>
+    <path d="M763 349L566 313L520 349L575 396L733 410L763 349Z" fill="url(#eye)"/>
+
+    <path d="M270 337L436 298L500 341L564 298L730 337" stroke="#FF3A54" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M500 205L500 535" stroke="#FF1738" stroke-opacity="0.42" stroke-width="6"/>
+    <path d="M415 555L500 595L585 555" stroke="#86949D" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round"/>
+    <path d="M388 650L500 694L612 650" stroke="#FF1738" stroke-opacity="0.34" stroke-width="7" stroke-linecap="round"/>
+    <path d="M370 731L500 778L630 731" stroke="#B3BEC5" stroke-opacity="0.20" stroke-width="6" stroke-linecap="round"/>
+
+    <path d="M296 200L500 126L704 200" stroke="#C6D0D6" stroke-opacity="0.20" stroke-width="7" stroke-linecap="round"/>
+    <path d="M212 477L500 573L788 477" stroke="#788690" stroke-opacity="0.18" stroke-width="5"/>
+    <path d="M322 849L500 955L678 849" stroke="#FF1738" stroke-opacity="0.20" stroke-width="7"/>
+
+    <g filter="url(#softGlow)" opacity="0.34">
+      <path d="M500 82L688 148L821 314L791 671L690 879L500 1008L310 879L209 671L179 314L312 148L500 82Z" stroke="#FF1738" stroke-width="9"/>
     </g>
-
-    <path d="M250 360L405 327L441 355L396 390L268 400L250 360Z" fill="#B4FFD2" fill-opacity="0.95"/>
-    <path d="M650 360L495 327L459 355L504 390L632 400L650 360Z" fill="#B4FFD2" fill-opacity="0.95"/>
-
-    <path d="M365 642L450 677L535 642" stroke="#98FFC5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-    <path d="M346 714L450 759L554 714" stroke="#98FFC5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
-
-    <path d="M330 222L450 184L570 222" stroke="#8EFFBE" stroke-width="8" stroke-linecap="round" opacity="0.24"/>
-    <path d="M285 465L450 526L615 465" stroke="#8EFFBE" stroke-width="7" opacity="0.22"/>
-    <path d="M334 825L450 878L566 825" stroke="#8EFFBE" stroke-width="8" opacity="0.18"/>
   </g>
 </svg>

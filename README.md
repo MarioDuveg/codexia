@@ -1,39 +1,31 @@
-# JARVIS vs ULTRON — Hackathon
+# JARVIS vs ULTRON — Hackathon Sonora
 
-Sitio promocional estático y responsivo para GitHub Pages.
+Sitio estático listo para publicar en GitHub Pages.
 
 ## Archivos
 
-- `index.html`
-- `styles.css`
-- `script.js`
-- `ultron-face.svg`
-- `README.md`
+- `index.html` — estructura y contenido.
+- `styles.css` — diseño visual.
+- `script.js` — menú móvil, animaciones y aviso de prerregistro.
+- `ultron-face.svg` — ilustración original del rostro robótico usada en el hero.
 
-## Personalización rápida
+## Antes de publicar
 
-### Enlace de prerregistro
-
-En `index.html` busca esta línea:
+Busca en `index.html` este botón:
 
 ```html
-<a class="btn primary large" href="#" id="registerLink">
+<a class="btn primary large" href="#" id="registerLink">PRERREGISTRARME <span>→</span></a>
 ```
 
-Cambia `#` por la URL real de tu formulario.
+Sustituye `href="#"` por la URL real de tu Google Form, Microsoft Form o sistema de prerregistro.
 
-### Fecha, sede y organizadores
+## Publicar en GitHub Pages
 
-Todavía puedes agregar esos datos en la sección principal o cerca del prerregistro.
+1. Crea un repositorio nuevo en GitHub.
+2. Sube los cuatro archivos del proyecto a la raíz del repositorio.
+3. En GitHub abre **Settings → Pages**.
+4. En **Build and deployment**, selecciona **Deploy from a branch**.
+5. Selecciona la rama `main` y la carpeta `/ (root)`.
+6. Guarda los cambios y espera a que GitHub genere la URL pública.
 
-## Publicación en GitHub Pages
-
-1. Crea un repositorio nuevo.
-2. Sube todos estos archivos a la raíz del repositorio.
-3. Ve a `Settings`.
-4. Abre `Pages`.
-5. Elige `Deploy from a branch`.
-6. Selecciona la rama `main` y carpeta `/root`.
-7. Guarda los cambios.
-
-GitHub publicará el sitio automáticamente.
+No requiere Node.js, compilación ni dependencias locales.

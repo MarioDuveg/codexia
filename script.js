@@ -1,17 +1,19 @@
 const menuBtn = document.getElementById('menuBtn');
 const nav = document.getElementById('nav');
 
-menuBtn.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-});
-
-nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
+if (menuBtn && nav) {
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-});
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
 const observer = new IntersectionObserver(
   entries => {
@@ -22,15 +24,17 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.14 }
+  { threshold: 0.10 }
 );
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 const registerLink = document.getElementById('registerLink');
-registerLink.addEventListener('click', event => {
-  if (registerLink.getAttribute('href') === '#') {
-    event.preventDefault();
-    alert('Agrega aquí el enlace real de tu formulario de prerregistro.');
-  }
-});
+if (registerLink) {
+  registerLink.addEventListener('click', event => {
+    if (registerLink.getAttribute('href') === '#') {
+      event.preventDefault();
+      alert('Sustituye el href del botón por el enlace real de tu formulario de prerregistro.');
+    }
+  });
+}
