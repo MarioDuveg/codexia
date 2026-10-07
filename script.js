@@ -174,6 +174,7 @@ function updateCountdown() {
   const daysEl = document.getElementById('countdownDays');
   const hoursEl = document.getElementById('countdownHours');
   const minutesEl = document.getElementById('countdownMinutes');
+  const secondsEl = document.getElementById('countdownSeconds');
 
   const now = new Date();
   const target = getNextEventDate();
@@ -184,18 +185,21 @@ function updateCountdown() {
     if (daysEl) daysEl.textContent = '0';
     if (hoursEl) hoursEl.textContent = '0';
     if (minutesEl) minutesEl.textContent = '0';
+    if (secondsEl) secondsEl.textContent = '0';
     return;
   }
 
-  const totalMinutes = Math.floor(diff / (1000 * 60));
-  const days = Math.floor(totalMinutes / (60 * 24));
-  const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
-  const minutes = totalMinutes % 60;
+  const totalSeconds = Math.floor(diff / 1000);
+  const days = Math.floor(totalSeconds / (60 * 60 * 24));
+  const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+  const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+  const seconds = totalSeconds % 60;
 
   if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
   if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
   if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+  if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
 }
 
 updateCountdown();
-setInterval(updateCountdown, 30000);
+setInterval(updateCountdown, 1000);
