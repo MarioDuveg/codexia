@@ -40,6 +40,28 @@
     <section class="hero" id="inicio">
       <div class="hero-image-wrap" aria-hidden="true">
         <img class="ultron-hero" src="assets/cyborg-rojo.webp" alt="" />
+        <svg class="hero-eye-overlay" viewBox="0 0 1200 675" preserveAspectRatio="xMidYMin slice" aria-hidden="true" focusable="false">
+          <defs>
+            <filter id="ultronEyeBlurSoft" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="28" />
+            </filter>
+            <filter id="ultronEyeBlurCore" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="10" />
+            </filter>
+          </defs>
+
+          <g class="eye-glow eye-left">
+            <ellipse cx="420" cy="248" rx="82" ry="34" fill="rgba(255,32,56,.16)" filter="url(#ultronEyeBlurSoft)"></ellipse>
+            <ellipse cx="420" cy="248" rx="48" ry="18" fill="rgba(255,55,75,.34)" filter="url(#ultronEyeBlurCore)"></ellipse>
+            <ellipse cx="420" cy="248" rx="22" ry="10" fill="rgba(255,132,145,.55)"></ellipse>
+          </g>
+
+          <g class="eye-glow eye-right">
+            <ellipse cx="780" cy="248" rx="82" ry="34" fill="rgba(255,32,56,.16)" filter="url(#ultronEyeBlurSoft)"></ellipse>
+            <ellipse cx="780" cy="248" rx="48" ry="18" fill="rgba(255,55,75,.34)" filter="url(#ultronEyeBlurCore)"></ellipse>
+            <ellipse cx="780" cy="248" rx="22" ry="10" fill="rgba(255,132,145,.55)"></ellipse>
+          </g>
+        </svg>
         <div class="hero-shade"></div>
         <div class="hero-red-glow"></div>
       </div>
