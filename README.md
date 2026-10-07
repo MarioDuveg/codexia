@@ -46,3 +46,8 @@ Para producción, asegúrate de que:
 2. RLS esté habilitado.
 3. El rol público solo tenga permiso de `INSERT` en los campos del formulario.
 4. No exista una política pública de `SELECT`, `UPDATE` o `DELETE`.
+
+## Actualización de sede e itinerario
+- Entrada gratuita.
+- Sede base: Tecnológico de Monterrey, Campus Sonora Norte — Sala de Usos Múltiples (SUM).
+- Se agregó el itinerario completo del evento de 08:00 a 13:30.

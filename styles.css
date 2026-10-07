@@ -964,3 +964,135 @@ footer {
   .venue-card { padding: 34px 24px; }
   .registration-location strong { font-size: 10px; }
 }
+
+/* Entrada gratuita + sala */
+.venue-room {
+  margin-top: 9px;
+  width: fit-content;
+  padding: 7px 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-left: 2px solid var(--red);
+  background: rgba(255,22,56,.055);
+  color: #f1f2f4;
+  font-family: "Orbitron", sans-serif;
+  font-size: 10px;
+  letter-spacing: .8px;
+  line-height: 1.35;
+}
+
+/* Itinerario */
+.itinerary-section {
+  border-top: 1px solid rgba(255,255,255,.07);
+  background:
+    radial-gradient(circle at 88% 20%, rgba(255,22,56,.08), transparent 28%),
+    linear-gradient(180deg, rgba(8,8,10,.96), rgba(4,4,5,.98));
+}
+.itinerary-heading strong {
+  color: var(--red);
+  text-shadow: 0 0 22px rgba(255,22,56,.25);
+}
+.timeline {
+  position: relative;
+  margin-top: 42px;
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 205px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(255,22,56,.75), rgba(255,255,255,.09) 18%, rgba(255,255,255,.09) 82%, rgba(255,22,56,.55));
+  box-shadow: 0 0 16px rgba(255,22,56,.18);
+}
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 52px;
+  min-height: 128px;
+  padding: 24px 26px 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 200px;
+  top: 34px;
+  width: 11px;
+  height: 11px;
+  transform: translateX(-50%) rotate(45deg);
+  border: 1px solid rgba(255,22,56,.85);
+  background: #070709;
+  box-shadow: 0 0 14px rgba(255,22,56,.45);
+}
+.timeline-item time {
+  padding-top: 6px;
+  color: #f1f2f4;
+  font-family: "Orbitron", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+.timeline-item time span { color: var(--red); }
+.timeline-copy { padding-left: 4px; }
+.timeline-code {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--red);
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+.timeline-copy h3 {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(20px, 2.1vw, 30px);
+  line-height: 1.15;
+}
+.timeline-copy p {
+  margin: 8px 0 0;
+  max-width: 720px;
+  color: #95989f;
+  font-size: 17px;
+  line-height: 1.5;
+}
+.timeline-break {
+  min-height: 98px;
+  background: linear-gradient(90deg, rgba(255,255,255,.015), transparent);
+}
+.timeline-break .timeline-copy h3 { color: #c6c8cd; }
+.timeline-final {
+  background: linear-gradient(90deg, rgba(255,22,56,.085), rgba(255,22,56,.015) 58%, transparent);
+}
+.timeline-final::before {
+  background: var(--red);
+  box-shadow: 0 0 22px rgba(255,22,56,.75);
+}
+.timeline-final .timeline-copy h3 {
+  color: #fff;
+  text-shadow: 0 0 18px rgba(255,22,56,.22);
+}
+
+@media (max-width: 760px) {
+  .timeline { margin-top: 30px; }
+  .timeline::before { left: 9px; }
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    min-height: 0;
+    padding: 24px 8px 24px 34px;
+  }
+  .timeline-item::before {
+    left: 9px;
+    top: 31px;
+  }
+  .timeline-item time {
+    font-size: 12px;
+  }
+  .timeline-copy { padding-left: 0; }
+  .timeline-copy p { font-size: 16px; }
+  .venue-room { font-size: 9px; }
+}
