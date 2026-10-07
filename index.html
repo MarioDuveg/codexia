@@ -38,23 +38,11 @@
 
   <main>
     <section class="hero" id="inicio">
-      <div class="hero-image-wrap" aria-hidden="true">
-        <img
-          class="ultron-hero ultron-hero-low"
-          id="ultronHeroLow"
-          src="assets/cyborg-rojo.webp"
-          alt=""
-          fetchpriority="high"
-          decoding="async"
-        />
-        <img
-          class="ultron-hero ultron-hero-high"
-          id="ultronHeroHigh"
-          data-src="assets/ultron-hero-hq.png"
-          alt=""
-          decoding="async"
-        />
+      <div class="hero-image-wrap" id="heroImageWrap" aria-hidden="true">
+        <img class="ultron-hero ultron-hero-base" src="assets/ultron-base.webp" alt="" fetchpriority="high" decoding="async" />
+        <img class="ultron-hero ultron-hero-bright" id="ultronHeroBright" src="assets/ultron-bright.png" alt="" decoding="async" />
         <div class="hero-shade"></div>
+        <div class="hero-red-glow"></div>
       </div>
 
       <div class="hud hud-left" aria-hidden="true">
@@ -81,7 +69,7 @@
         </p>
         <div class="hero-intel" aria-label="Información destacada del evento">
           <span>ENTRADA // GRATIS</span>
-          <span>PREMIO // AMAZON $500 MXN</span>
+          <span>PREMIO // TARJETAS AMAZON · EQUIPO GANADOR</span>
           <span>SEDE // TEC · SUM</span>
           <span>FECHA // 7 DE NOVIEMBRE · 8:00 AM</span>
         </div>
@@ -267,8 +255,8 @@
           <h2>COMPITE.<br><strong>GANA.</strong></h2>
         </div>
         <p>
-          La entrada es gratis. Lleva tus ideas al límite, resuelve la misión y compite por premios de CODEXIA
-          en una jornada presencial en el Tec de Monterrey, Campus Sonora Norte.
+          La entrada es gratis. Lleva tus ideas al límite, resuelve la misión y compite por tarjetas Amazon para el equipo ganador
+          en una jornada presencial en el Tecnológico de Monterrey, Campus Sonora Norte.
         </p>
       </div>
 
@@ -282,7 +270,7 @@
             <span class="card-code">REWARD // 500_MXN</span>
             <h3>Tarjetas Amazon<br><strong>$500 MXN</strong></h3>
             <p>
-              Los premios del hackathon serán tarjetas de regalo de Amazon.com.mx
+              El premio para el <strong>equipo ganador</strong> serán tarjetas de regalo de Amazon.com.mx
               con valor de <strong>$500 MXN</strong>.
             </p>
           </div>
@@ -292,6 +280,7 @@
           <span class="card-code">LOCATION // HMO</span>
           <div class="venue-pin" aria-hidden="true">⌖</div>
           <span class="venue-label">SEDE PRESENCIAL · ENTRADA GRATIS</span>
+          <img class="venue-logo" src="assets/tec-logo.jpg" alt="Tecnológico de Monterrey" />
           <h3>Tecnológico de Monterrey</h3>
           <strong class="venue-campus">Campus Sonora Norte</strong>
           <strong class="venue-room">Sala de Usos Múltiples (SUM)</strong>
@@ -417,7 +406,7 @@
             <span>◉ CUPO LIMITADO</span>
             <span>⌚ 7 DE NOVIEMBRE · 8:00 AM</span>
             <span>⌁ ESTUDIANTES DE 5.º SEMESTRE DE PREPARATORIA</span>
-            <span>★ PREMIO · AMAZON $500 MXN</span>
+            <span>★ TARJETAS AMAZON · EQUIPO GANADOR</span>
             <span>&lt;/&gt; 4 ÁREAS TECNOLÓGICAS</span>
           </div>
         </div>
