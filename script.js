@@ -238,49 +238,68 @@ if (heroLayerA && heroLayerB) {
   };
 
   let activeSet = sets.sd;
-  let currentState = 'dim';
-  let visibleLayer = heroLayerA;
-  let hiddenLayer = heroLayerB;
-  let isTransitioning = false;
+  let hdReady = false;
+  let hdActivated = false;
+  let pulseTimer = null;
 
+  // La imagen tenue siempre queda como base. La imagen brillante sólo se mezcla encima.
   heroLayerA.src = activeSet.dim;
   heroLayerB.src = activeSet.bright;
-  heroLayerA.classList.add('is-visible');
-  heroLayerB.classList.remove('is-visible');
+  heroLayerA.style.opacity = '1';
+  heroLayerB.style.opacity = '0';
 
-  function syncLayersToSet(nextSet) {
-    activeSet = nextSet;
-    visibleLayer.src = currentState === 'dim' ? activeSet.dim : activeSet.bright;
-    hiddenLayer.src = currentState === 'dim' ? activeSet.bright : activeSet.dim;
+  function randomBetween(min, max) {
+    return min + Math.random() * (max - min);
   }
 
-  function fadeTo(nextState) {
-    if (isTransitioning) return;
-    isTransitioning = true;
+  function activateHdWhenIdle() {
+    if (!hdReady || hdActivated) return;
 
-    hiddenLayer.src = nextState === 'dim' ? activeSet.dim : activeSet.bright;
-    hiddenLayer.classList.add('is-visible');
-    visibleLayer.classList.remove('is-visible');
-
-    window.setTimeout(() => {
-      const previousVisible = visibleLayer;
-      visibleLayer = hiddenLayer;
-      hiddenLayer = previousVisible;
-      currentState = nextState;
-      isTransitioning = false;
-    }, 500);
+    activeSet = sets.hd;
+    heroLayerA.src = activeSet.dim;
+    heroLayerB.src = activeSet.bright;
+    hdActivated = true;
   }
 
-  window.setInterval(() => {
-    fadeTo(currentState === 'dim' ? 'bright' : 'dim');
-  }, 1000);
+  function schedulePulse() {
+    // La siguiente subida de brillo reaparece en un momento impredecible entre 0 y 2 s.
+    const waitMs = Math.round(randomBetween(0, 2000));
 
+    pulseTimer = window.setTimeout(() => {
+      activateHdWhenIdle();
+
+      // La imagen brillante nunca llega a 100%: sólo aporta entre 20% y 30%.
+      const peakOpacity = randomBetween(0.20, 0.30);
+
+      // Duración total de la animación: aleatoria entre 0 y 1 s.
+      // Se divide en subida y bajada para mantener un pulso suave.
+      const totalDuration = Math.round(randomBetween(80, 1000));
+      const fadeInMs = Math.max(40, Math.round(totalDuration * 0.5));
+      const fadeOutMs = Math.max(40, totalDuration - fadeInMs);
+
+      heroLayerB.style.transition = `opacity ${fadeInMs}ms ease-in-out`;
+      heroLayerB.style.opacity = peakOpacity.toFixed(3);
+
+      window.setTimeout(() => {
+        heroLayerB.style.transition = `opacity ${fadeOutMs}ms ease-in-out`;
+        heroLayerB.style.opacity = '0';
+
+        window.setTimeout(() => {
+          schedulePulse();
+        }, fadeOutMs);
+      }, fadeInMs);
+    }, waitMs);
+  }
+
+  // Empezamos con las dos SD inmediatamente. Las HD se descargan en segundo plano.
   Promise.all([
     preloadImage(sets.hd.dim),
     preloadImage(sets.hd.bright)
   ]).then(() => {
-    syncLayersToSet(sets.hd);
+    hdReady = true;
   }).catch((error) => {
     console.warn('No se pudieron cargar las imágenes HD de Ultron:', error);
   });
+
+  schedulePulse();
 }

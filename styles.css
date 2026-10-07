@@ -1205,7 +1205,6 @@ footer {
   object-fit: cover;
   object-position: center 8%;
   opacity: 0;
-  transition: opacity 500ms ease;
   will-change: opacity;
 }
 
