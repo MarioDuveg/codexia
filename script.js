@@ -203,3 +203,53 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+
+// Carga progresiva del hero: primero preview ligera, después reemplazo por HQ.
+(function setupProgressiveUltronHero() {
+  const low = document.getElementById('ultronHeroLow');
+  const high = document.getElementById('ultronHeroHigh');
+  if (!low || !high) return;
+
+  const highSrc = high.dataset.src;
+  if (!highSrc) return;
+
+  let requested = false;
+
+  const loadHighResolution = () => {
+    if (requested) return;
+    requested = true;
+
+    // La imagen HQ comienza a descargarse solamente después de que la preview ya está disponible.
+    high.src = highSrc;
+
+    const revealHigh = async () => {
+      try {
+        if (high.decode) await high.decode();
+      } catch {
+        // Algunos navegadores resuelven load antes de decode; el recurso ya está utilizable.
+      }
+
+      high.classList.add('is-loaded');
+
+      const removeLow = () => {
+        if (low.isConnected) low.remove();
+      };
+
+      high.addEventListener('transitionend', removeLow, { once: true });
+      window.setTimeout(removeLow, 700);
+    };
+
+    if (high.complete && high.naturalWidth > 0) {
+      revealHigh();
+    } else {
+      high.addEventListener('load', revealHigh, { once: true });
+    }
+  };
+
+  if (low.complete && low.naturalWidth > 0) {
+    loadHighResolution();
+  } else {
+    low.addEventListener('load', loadHighResolution, { once: true });
+  }
+})();

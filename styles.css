@@ -1212,40 +1212,118 @@ footer {
 
 
 
-@media (max-width: 760px) {
+
+
+/* Hero de Ultron: preview rápida + reemplazo progresivo por imagen HQ */
+.hero-image-wrap {
+  position: absolute;
+  inset: 78px 0 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #030304;
+}
+
+.hero-image-wrap .ultron-hero {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.015);
+  transform-origin: 50% 34%;
+  filter: contrast(1.05) saturate(1.04) brightness(.9);
+}
+
+.ultron-hero-low {
+  z-index: 1;
+  opacity: 1;
+}
+
+.ultron-hero-high {
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+
+.ultron-hero-high.is-loaded {
+  opacity: 1;
+}
+
+.hero-shade {
+  z-index: 3;
+}
+
+/* Tablet: encuadre cerrado sobre ambos ojos, no sobre la cara completa. */
+@media (max-width: 1024px) {
   .hero {
-    min-height: 860px;
+    min-height: 850px;
   }
 
   .hero-image-wrap {
     inset: 68px 0 auto 0;
-    height: min(44vh, 340px);
+    height: clamp(210px, 31vw, 300px);
   }
 
-  .ultron-hero {
-    object-fit: contain;
-    object-position: center top;
-    transform: none;
-    filter: contrast(1.04) saturate(1.05) brightness(.92);
+  .hero-image-wrap .ultron-hero {
+    object-fit: cover;
+    object-position: center 35%;
+    transform: scale(1.38);
+    transform-origin: 50% 36%;
   }
 
   .hero-shade {
     background:
-      linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.10) 42%, rgba(3,3,4,.72) 88%, #030304 100%),
-      linear-gradient(90deg, rgba(0,0,0,.28), transparent 28%, transparent 72%, rgba(0,0,0,.28));
-  }
-
-  .hero-red-glow {
-    width: 92vw;
-    height: 180px;
-    top: 6%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: .55;
-    filter: blur(28px);
+      linear-gradient(180deg, rgba(0,0,0,.02) 0%, rgba(0,0,0,.03) 42%, rgba(3,3,4,.50) 78%, #030304 100%),
+      linear-gradient(90deg, rgba(0,0,0,.34) 0%, transparent 24%, transparent 76%, rgba(0,0,0,.34) 100%);
   }
 
   .hero-content {
-    padding-top: calc(min(44vh, 340px) + 40px);
+    padding-top: calc(clamp(210px, 31vw, 300px) + 150px);
+  }
+}
+
+/* Celular: zoom adicional; ambos ojos permanecen dentro del recorte. */
+@media (max-width: 760px) {
+  .hero {
+    min-height: 860px;
+    padding-top: 68px;
+  }
+
+  .hero-image-wrap {
+    inset: 68px 0 auto 0;
+    height: clamp(170px, 48vw, 215px);
+  }
+
+  .hero-image-wrap .ultron-hero {
+    object-position: center 35%;
+    transform: scale(1.62);
+    transform-origin: 50% 36%;
+    filter: contrast(1.04) saturate(1.05) brightness(.92);
+  }
+
+  .hero-content {
+    padding-top: calc(clamp(170px, 48vw, 215px) + 62px);
+  }
+}
+
+@media (max-width: 440px) {
+  .hero-image-wrap {
+    height: 168px;
+  }
+
+  .hero-image-wrap .ultron-hero {
+    transform: scale(1.72);
+    transform-origin: 50% 36%;
+  }
+
+  .hero-content {
+    padding-top: 224px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ultron-hero-high {
+    transition: none;
   }
 }

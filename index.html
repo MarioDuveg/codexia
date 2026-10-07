@@ -39,9 +39,22 @@
   <main>
     <section class="hero" id="inicio">
       <div class="hero-image-wrap" aria-hidden="true">
-        <img class="ultron-hero" src="assets/cyborg-rojo.webp" alt="" />
+        <img
+          class="ultron-hero ultron-hero-low"
+          id="ultronHeroLow"
+          src="assets/cyborg-rojo.webp"
+          alt=""
+          fetchpriority="high"
+          decoding="async"
+        />
+        <img
+          class="ultron-hero ultron-hero-high"
+          id="ultronHeroHigh"
+          data-src="assets/ultron-hero-hq.png"
+          alt=""
+          decoding="async"
+        />
         <div class="hero-shade"></div>
-        <div class="hero-red-glow"></div>
       </div>
 
       <div class="hud hud-left" aria-hidden="true">
