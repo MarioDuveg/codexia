@@ -153,3 +153,49 @@ if (preregistroForm) {
     }
   });
 }
+
+
+function getNextEventDate() {
+  const now = new Date();
+  const year = now.getFullYear();
+  let target = new Date(year, 10, 7, 8, 0, 0, 0); // 7 noviembre, 8:00 AM
+
+  if (target.getTime() <= now.getTime()) {
+    target = new Date(year + 1, 10, 7, 8, 0, 0, 0);
+  }
+
+  return target;
+}
+
+function updateCountdown() {
+  const countdown = document.getElementById('countdown');
+  if (!countdown) return;
+
+  const daysEl = document.getElementById('countdownDays');
+  const hoursEl = document.getElementById('countdownHours');
+  const minutesEl = document.getElementById('countdownMinutes');
+
+  const now = new Date();
+  const target = getNextEventDate();
+  const diff = target.getTime() - now.getTime();
+
+  if (diff <= 0) {
+    countdown.classList.add('countdown-ended');
+    if (daysEl) daysEl.textContent = '0';
+    if (hoursEl) hoursEl.textContent = '0';
+    if (minutesEl) minutesEl.textContent = '0';
+    return;
+  }
+
+  const totalMinutes = Math.floor(diff / (1000 * 60));
+  const days = Math.floor(totalMinutes / (60 * 24));
+  const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
+  const minutes = totalMinutes % 60;
+
+  if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+  if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+  if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 30000);

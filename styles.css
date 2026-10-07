@@ -1096,3 +1096,98 @@ footer {
   .timeline-copy p { font-size: 16px; }
   .venue-room { font-size: 9px; }
 }
+
+
+/* Fecha y cuenta regresiva */
+.event-countdown {
+  margin: 22px auto 0;
+  max-width: 780px;
+}
+
+.event-date-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.event-date-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255,22,56,.5);
+  background: rgba(0,0,0,.46);
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  box-shadow: 0 0 22px rgba(255,22,56,.16), inset 0 0 18px rgba(255,22,56,.06);
+  clip-path: polygon(5% 0, 100% 0, 100% 70%, 95% 100%, 0 100%, 0 30%);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.countdown-card {
+  position: relative;
+  min-height: 104px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: linear-gradient(145deg, rgba(16,16,19,.95), rgba(6,6,8,.96));
+  box-shadow: 0 0 18px rgba(255,22,56,.12), inset 0 0 18px rgba(255,22,56,.04);
+  clip-path: polygon(7% 0, 100% 0, 100% 74%, 93% 100%, 0 100%, 0 26%);
+  padding: 18px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.countdown-card::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 42px;
+  height: 2px;
+  background: var(--red);
+  box-shadow: 0 0 10px rgba(255,22,56,.8);
+}
+
+.countdown-card strong {
+  display: block;
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 18px rgba(255,22,56,.18);
+}
+
+.countdown-card span {
+  margin-top: 10px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #aeb2bb;
+}
+
+.countdown-ended .countdown-card strong {
+  color: #ffb4be;
+}
+
+@media (max-width: 860px) {
+  .countdown-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .event-date-pill {
+    width: 100%;
+    text-align: center;
+    padding: 12px 16px;
+  }
+}
