@@ -205,15 +205,82 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 
-const heroImageWrap = document.getElementById('heroImageWrap');
-const ultronHeroBright = document.getElementById('ultronHeroBright');
 
-if (heroImageWrap && ultronHeroBright) {
-  const startHeroAnimation = () => heroImageWrap.classList.add('is-animating');
 
-  if (ultronHeroBright.complete) {
-    startHeroAnimation();
-  } else {
-    ultronHeroBright.addEventListener('load', startHeroAnimation, { once: true });
+const heroLayerA = document.getElementById('ultronLayerA');
+const heroLayerB = document.getElementById('ultronLayerB');
+
+function preloadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.decoding = 'async';
+    img.onload = async () => {
+      try {
+        if (img.decode) await img.decode();
+      } catch (_) {}
+      resolve(src);
+    };
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+if (heroLayerA && heroLayerB) {
+  const sets = {
+    sd: {
+      dim: 'assets/ultron-sd-dim.webp',
+      bright: 'assets/ultron-sd-bright.webp'
+    },
+    hd: {
+      dim: 'assets/ultron-hd-dim.png',
+      bright: 'assets/ultron-hd-bright.png'
+    }
+  };
+
+  let activeSet = sets.sd;
+  let currentState = 'dim';
+  let visibleLayer = heroLayerA;
+  let hiddenLayer = heroLayerB;
+  let isTransitioning = false;
+
+  heroLayerA.src = activeSet.dim;
+  heroLayerB.src = activeSet.bright;
+  heroLayerA.classList.add('is-visible');
+  heroLayerB.classList.remove('is-visible');
+
+  function syncLayersToSet(nextSet) {
+    activeSet = nextSet;
+    visibleLayer.src = currentState === 'dim' ? activeSet.dim : activeSet.bright;
+    hiddenLayer.src = currentState === 'dim' ? activeSet.bright : activeSet.dim;
   }
+
+  function fadeTo(nextState) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    hiddenLayer.src = nextState === 'dim' ? activeSet.dim : activeSet.bright;
+    hiddenLayer.classList.add('is-visible');
+    visibleLayer.classList.remove('is-visible');
+
+    window.setTimeout(() => {
+      const previousVisible = visibleLayer;
+      visibleLayer = hiddenLayer;
+      hiddenLayer = previousVisible;
+      currentState = nextState;
+      isTransitioning = false;
+    }, 500);
+  }
+
+  window.setInterval(() => {
+    fadeTo(currentState === 'dim' ? 'bright' : 'dim');
+  }, 1000);
+
+  Promise.all([
+    preloadImage(sets.hd.dim),
+    preloadImage(sets.hd.bright)
+  ]).then(() => {
+    syncLayersToSet(sets.hd);
+  }).catch((error) => {
+    console.warn('No se pudieron cargar las imágenes HD de Ultron:', error);
+  });
 }

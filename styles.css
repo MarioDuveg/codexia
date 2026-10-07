@@ -1184,6 +1184,112 @@ footer {
 
 
 
+
+/* Hero cyborg image system */
+.hero-image-wrap {
+  position: absolute;
+  inset: 78px 0 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #020203;
+}
+
+.hero-image-wrap > * {
+  position: absolute;
+  inset: 0;
+}
+
+.ultron-layer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 8%;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  will-change: opacity;
+}
+
+.ultron-layer.is-visible {
+  opacity: 1;
+}
+
+.hero-shade {
+  z-index: 3;
+}
+
+.hero-red-glow {
+  z-index: 3;
+}
+
+@media (max-width: 1120px) {
+  .hero-image-wrap {
+    inset: 78px 0 auto 0;
+    height: min(56vh, 430px);
+  }
+
+  .ultron-layer {
+    object-position: center 10%;
+    transform: scale(1.12);
+  }
+
+  .hero-content {
+    padding-top: calc(min(56vh, 430px) + 44px);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 860px;
+    padding-top: 68px;
+  }
+
+  .hero-image-wrap {
+    inset: 68px 0 auto 0;
+    height: min(48vh, 360px);
+  }
+
+  .ultron-layer {
+    object-position: center 12%;
+    transform: scale(1.22);
+  }
+
+  .hero-shade {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.03) 0%, rgba(0,0,0,.08) 42%, rgba(3,3,4,.72) 88%, #030304 100%),
+      linear-gradient(90deg, rgba(0,0,0,.25), transparent 28%, transparent 72%, rgba(0,0,0,.25));
+  }
+
+  .hero-red-glow {
+    width: 92vw;
+    height: 180px;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .55;
+    filter: blur(28px);
+  }
+
+  .hero-content {
+    padding-top: calc(min(48vh, 360px) + 38px);
+  }
+}
+
+.venue-logo {
+  display: block;
+  width: min(100%, 250px);
+  border-radius: 10px;
+  margin: 12px 0 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 12px 34px rgba(0,0,0,.28);
+}
+
+@media (max-width: 760px) {
+  .venue-logo {
+    width: min(100%, 220px);
+    margin-bottom: 14px;
+  }
+}
+
 /* Countdown responsive layout */
 .countdown-grid {
   display: grid;
@@ -1212,191 +1318,3 @@ footer {
 
 
 
-@media (max-width: 760px) {
-  .hero {
-    min-height: 860px;
-  }
-
-  .hero-image-wrap {
-    inset: 68px 0 auto 0;
-    height: min(44vh, 340px);
-  }
-
-  .ultron-hero {
-    object-fit: contain;
-    object-position: center top;
-    transform: none;
-    filter: contrast(1.04) saturate(1.05) brightness(.92);
-  }
-
-  .hero-shade {
-    background:
-      linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.10) 42%, rgba(3,3,4,.72) 88%, #030304 100%),
-      linear-gradient(90deg, rgba(0,0,0,.28), transparent 28%, transparent 72%, rgba(0,0,0,.28));
-  }
-
-  .hero-red-glow {
-    width: 92vw;
-    height: 180px;
-    top: 6%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: .55;
-    filter: blur(28px);
-  }
-
-  .hero-content {
-    padding-top: calc(min(44vh, 340px) + 40px);
-  }
-
-  .hero-eye-overlay {
-    opacity: .95;
-  }
-}
-
-
-/* Hero cyborg animation using two images */
-.hero-image-wrap {
-  position: absolute;
-  inset: 78px 0 0;
-  z-index: 0;
-  overflow: hidden;
-  background: #020203;
-}
-
-.hero-image-wrap > * {
-  position: absolute;
-  inset: 0;
-}
-
-.ultron-hero {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 8%;
-  will-change: transform, opacity;
-}
-
-.ultron-hero-base {
-  z-index: 1;
-  transform: scale(1.04);
-}
-
-.ultron-hero-bright {
-  z-index: 2;
-  opacity: 0;
-  transform: scale(1.04) rotate(0deg);
-}
-
-.hero-image-wrap.is-animating .ultron-hero-bright {
-  animation: ultronGlowTilt 1.5s ease-in-out infinite;
-}
-
-.hero-shade {
-  z-index: 3;
-}
-
-.hero-red-glow {
-  z-index: 3;
-}
-
-@keyframes ultronGlowTilt {
-  0% {
-    opacity: 0;
-    transform: scale(1.04) rotate(0deg);
-  }
-  33.333% {
-    opacity: 1;
-    transform: scale(1.04) rotate(0deg);
-  }
-  66.666% {
-    opacity: 1;
-    transform: scale(1.045) rotate(0.55deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.04) rotate(0deg);
-  }
-}
-
-.venue-logo {
-  display: block;
-  width: min(100%, 250px);
-  border-radius: 10px;
-  margin: 12px 0 18px;
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 12px 34px rgba(0,0,0,.28);
-}
-
-@media (max-width: 1100px) {
-  .hero-image-wrap {
-    inset: 78px 0 auto 0;
-    height: min(56vh, 420px);
-  }
-
-  .ultron-hero {
-    object-position: center 10%;
-  }
-
-  .ultron-hero-base,
-  .ultron-hero-bright {
-    transform: scale(1.15);
-  }
-
-  .hero-image-wrap.is-animating .ultron-hero-bright {
-    animation-name: ultronGlowTiltTablet;
-  }
-
-  @keyframes ultronGlowTiltTablet {
-    0% { opacity: 0; transform: scale(1.15) rotate(0deg); }
-    33.333% { opacity: 1; transform: scale(1.15) rotate(0deg); }
-    66.666% { opacity: 1; transform: scale(1.16) rotate(0.45deg); }
-    100% { opacity: 0; transform: scale(1.15) rotate(0deg); }
-  }
-
-  .hero-content {
-    padding-top: calc(min(56vh, 420px) + 42px);
-  }
-}
-
-@media (max-width: 760px) {
-  .hero {
-    min-height: 860px;
-    padding-top: 68px;
-  }
-
-  .hero-image-wrap {
-    inset: 68px 0 auto 0;
-    height: min(48vh, 350px);
-  }
-
-  .ultron-hero {
-    object-fit: cover;
-    object-position: center 12%;
-  }
-
-  .ultron-hero-base,
-  .ultron-hero-bright {
-    transform: scale(1.24);
-  }
-
-  .hero-image-wrap.is-animating .ultron-hero-bright {
-    animation-name: ultronGlowTiltMobile;
-  }
-
-  @keyframes ultronGlowTiltMobile {
-    0% { opacity: 0; transform: scale(1.24) rotate(0deg); }
-    33.333% { opacity: 1; transform: scale(1.24) rotate(0deg); }
-    66.666% { opacity: 1; transform: scale(1.255) rotate(0.35deg); }
-    100% { opacity: 0; transform: scale(1.24) rotate(0deg); }
-  }
-
-  .hero-content {
-    padding-top: calc(min(48vh, 350px) + 36px);
-  }
-
-  .venue-logo {
-    width: min(100%, 220px);
-    margin-bottom: 14px;
-  }
-}
