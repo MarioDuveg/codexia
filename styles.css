@@ -1340,3 +1340,56 @@ footer {
 
 
 
+
+
+/* Registro: correcciones de navegación y móvil */
+.registration-form-target {
+  min-width: 0;
+  width: 100%;
+  scroll-margin-top: 96px;
+}
+
+.registration-form-target .registration-form {
+  width: 100%;
+}
+
+.registration-intro h2 {
+  max-width: 100%;
+}
+
+@media (max-width: 760px) {
+  .registration-section {
+    overflow: hidden;
+  }
+
+  .registration-intro {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .registration-intro h2 {
+    font-size: clamp(40px, 12.6vw, 58px);
+    line-height: .94;
+    letter-spacing: -2px;
+    max-width: 100%;
+    overflow-wrap: normal;
+    word-break: keep-all;
+  }
+
+  .registration-intro p,
+  .registration-location,
+  .registration-meta {
+    max-width: 100%;
+  }
+
+  .registration-form-target {
+    scroll-margin-top: 82px;
+  }
+}
+
+@media (max-width: 390px) {
+  .registration-intro h2 {
+    font-size: clamp(38px, 12vw, 47px);
+    letter-spacing: -1.5px;
+  }
+}

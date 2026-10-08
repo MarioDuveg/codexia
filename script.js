@@ -34,7 +34,7 @@ window.addEventListener('scroll', () => {
   let active = 'inicio';
 
   sections.forEach((section) => {
-    if (section.offsetTop <= y) active = section.id;
+    if (section.offsetTop <= y) active = section.dataset.navId || section.id;
   });
 
   navLinks.forEach((link) => {
@@ -303,3 +303,41 @@ if (heroLayerA && heroLayerB) {
 
   schedulePulse();
 }
+
+
+function scrollToPreregistro({ smooth = false } = {}) {
+  const target = document.getElementById('registro');
+  if (!target) return;
+
+  target.scrollIntoView({
+    behavior: smooth ? 'smooth' : 'auto',
+    block: 'start'
+  });
+}
+
+document.querySelectorAll('a[href="#registro"]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (window.location.hash !== '#registro') {
+      history.pushState(null, '', '#registro');
+    }
+
+    scrollToPreregistro({ smooth: true });
+  });
+});
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#registro') {
+    scrollToPreregistro({ smooth: true });
+  }
+});
+
+window.addEventListener('load', () => {
+  if (window.location.hash === '#registro') {
+    // Reposiciona después de que estilos, fuentes e imágenes hayan definido el layout final.
+    requestAnimationFrame(() => {
+      window.setTimeout(() => scrollToPreregistro({ smooth: false }), 80);
+    });
+  }
+});
