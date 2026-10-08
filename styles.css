@@ -1273,19 +1273,42 @@ footer {
   }
 }
 
+.venue-logos {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 12px 0 18px;
+  flex-wrap: wrap;
+}
+
 .venue-logo {
   display: block;
-  width: min(100%, 250px);
+  height: 78px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
   border-radius: 10px;
-  margin: 12px 0 18px;
   border: 1px solid rgba(255,255,255,.14);
   box-shadow: 0 12px 34px rgba(0,0,0,.28);
 }
 
+.venue-logo-tec {
+  background: #073b8f;
+}
+
+.venue-logo-stem {
+  background: #fff;
+}
+
 @media (max-width: 760px) {
-  .venue-logo {
-    width: min(100%, 220px);
+  .venue-logos {
+    gap: 10px;
     margin-bottom: 14px;
+  }
+
+  .venue-logo {
+    height: 62px;
+    max-width: calc(50% - 5px);
   }
 }
 
