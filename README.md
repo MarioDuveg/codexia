@@ -12,7 +12,7 @@ Sitio estático responsive para el hackathon CODEXIA con preregistro conectado a
 
 ## Premio y sede
 
-- Premio mostrado: tarjetas de regalo Amazon.com.mx de **$500 MXN**.
+- Premio mostrado: tarjetas de regalo Amazon.com.mx de **$2000 MXN para cada integrante del equipo ganador**.
 - Sede: **Tecnológico de Monterrey, Campus Sonora Norte**.
 - Dirección: **Blvr. Enrique Mazón López 965, C.P. 83000, Hermosillo, Sonora, México**.
 

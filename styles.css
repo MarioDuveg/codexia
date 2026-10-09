@@ -807,11 +807,29 @@ footer {
     linear-gradient(145deg, #111217, #050507);
   border-right: 1px solid rgba(255,255,255,.09);
 }
-.prize-image-wrap img {
+.amazon-card-visual {
+  position: relative;
   width: min(100%, 440px);
-  display: block;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,.55));
   transform: rotate(-1.5deg);
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,.55));
+}
+.amazon-card-visual img {
+  width: 100%;
+  display: block;
+}
+.amazon-card-value {
+  position: absolute;
+  top: 5.2%;
+  left: 3.8%;
+  min-width: 25%;
+  padding: .04em .12em .08em;
+  background: #162e43;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.035em;
 }
 .prize-image-wrap::before {
   content: "";
