@@ -1293,7 +1293,10 @@ footer {
 }
 
 .venue-logo-tec {
-  background: #073b8f;
+  background: #f3f3f3;
+  padding: 6px 8px;
+  border-radius: 14px;
+  height: 88px;
 }
 
 .venue-logo-stem {
@@ -1391,5 +1394,141 @@ footer {
   .registration-intro h2 {
     font-size: clamp(38px, 12vw, 47px);
     letter-spacing: -1.5px;
+  }
+}
+
+
+/* Logos institucionales */
+@media (max-width: 760px) {
+  .venue-logos {
+    align-items: stretch;
+  }
+
+  .venue-logo-tec {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 92px;
+    object-fit: contain;
+    border-radius: 14px;
+  }
+
+  .venue-logo-stem {
+    height: 62px;
+    max-width: 100%;
+  }
+}
+
+
+/* Modo presentación: QR al final cuando la URL contiene ?presenting */
+.presenting-qr[hidden] {
+  display: none !important;
+}
+
+.presenting-qr {
+  min-height: 82vh;
+  padding: 96px 24px 110px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,22,56,.11), transparent 32%),
+    linear-gradient(180deg, #050506, #020203);
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.presenting-qr::before,
+.presenting-qr::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(255,22,56,.18);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.presenting-qr::before {
+  left: -150px;
+  top: 80px;
+}
+
+.presenting-qr::after {
+  right: -150px;
+  bottom: 80px;
+}
+
+.presenting-qr-shell {
+  width: min(100%, 760px);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.presenting-qr h2 {
+  margin: 14px 0 14px;
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(44px, 7vw, 84px);
+  line-height: .98;
+  letter-spacing: -2px;
+  color: #f0f0f2;
+}
+
+.presenting-qr h2 strong {
+  color: var(--red);
+  text-shadow: 0 0 24px rgba(255,22,56,.38);
+}
+
+.presenting-qr p {
+  max-width: 610px;
+  margin: 0 auto 30px;
+  color: #a6a9b0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.presenting-qr-card {
+  width: min(78vw, 390px);
+  aspect-ratio: 1;
+  margin: 0 auto 24px;
+  padding: 18px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12), 0 0 42px rgba(255,22,56,.18);
+}
+
+.presenting-qr-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.presenting-url {
+  display: inline-block;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(12px, 2vw, 16px);
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255,22,56,.7);
+  padding-bottom: 5px;
+}
+
+@media (max-width: 760px) {
+  .presenting-qr {
+    min-height: 70vh;
+    padding: 72px 18px 86px;
+  }
+
+  .presenting-qr p {
+    font-size: 16px;
+  }
+
+  .presenting-qr-card {
+    width: min(86vw, 340px);
+    padding: 14px;
+    border-radius: 20px;
   }
 }
